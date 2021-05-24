@@ -1,50 +1,66 @@
-let randomNumber = Math.floor(Math.random() * 100) + 1;
+let randomNum = Math.floor(Math.random() * 100) + 1;
 
-const guesses = document.querySelector('.guesses');
-const lastResult = document.querySelector('.lastResult');
+const predicts = document.querySelector('.predicts');
+const lastAnswer = document.querySelector('.lastAnswer');
 const lowOrHi = document.querySelector('.lowOrHi');
 
-const guessSubmit = document.querySelector('.guessSubmit');
-const guessField = document.querySelector('.guessField');
+const predictsSubmit = document.querySelector('.predictsSubmit');
+const predictsField = document.querySelector('.predictsField');
 
-let guessCount = 1;
+let pridictsCount = 1;
 let resetButton;
 
-function checkGuess() {
-    let userGuess = Number(guessField.value);
-    if (guessCount === 1) {
-      guesses.textContent = 'Previous guesses: ';
+<div class="answerParas">
+  <p class="predicts"></p>
+  <p class="lastanswer"></p>
+  <p class="lowOrHi"></p>
+</div>
+
+{/* <label for="predictField">Enter a prediction: </label><input type="text" id="predictField" class="predictField">
+<input type="submit" value="Submit prediction" class="predictsSumbit"> */}
+
+function checkPredict() {
+  alert('i am a potato');
+}
+checkGuess();
+
+function checkpredict() {
+    let userpredict = Number(predictField.value);
+    if (predictsCount === 1) {
+      predicts.textContent = 'Previous predicts: ';
     }
-    guesses.textContent += userGuess + ' ';
-  
-    if (userGuess === randomNumber) {
-      lastResult.textContent = 'Congratulations! You got it right!';
-      lastResult.style.backgroundColor = 'blue';
+    predicts.textContent += userPredict + ' ';
+
+    if (userPredict === randomNum) {
+      lastAnswer.textContent = 'Congratulations! You got it right!';
+      lastAnswer.style.backgroundColor = 'green';
       lowOrHi.textContent = '';
       setGameOver();
-    } else if (guessCount === 10) {
-      lastResult.textContent = '!!!GAME OVER!!!';
+    } else if (predictCount === 10) {
+      lastAnswer.textContent = '!!!GAME OVER!!!';
       setGameOver();
     } else {
-      lastResult.textContent = 'Wrong!';
-      lastResult.style.backgroundColor = 'red';
-      if(userGuess < randomNumber) {
+      lastAnswer.textContent = 'Wrong!';
+      lastAnswer.style.backgroundColor = 'red';
+      if(userPredict < randomNum) {
         lowOrHi.textContent = 'Last guess was too low!';
-      } else if(userGuess > randomNumber) {
+      } else if(userPredict > randomNum) {
         lowOrHi.textContent = 'Last guess was too high!';
       }
     }
   
-    guessCount++;
-    guessField.value = '';
-    guessField.focus();
+    predictCount++;
+    predictField.value = '';
+    predictField.focus();
   }
 
-  guessSubmit.addEventListener('click', checkGuess);
+  predictCount === 1
+
+  predictsSubmit.addEventListener('click', checkPredict);
 
   function setGameOver() {
-    guessField.disabled = true;
-    guessSubmit.disabled = true;
+    perdictField.disabled = true;
+    predictSubmit.disabled = true;
     resetButton = document.createElement('button');
     resetButton.textContent = 'Start new game';
     document.body.append(resetButton);
@@ -52,23 +68,21 @@ function checkGuess() {
   }
 
   function resetGame() {
-    guessCount = 1;
+    predictCount = 1;
   
-    const resetParas = document.querySelectorAll('.resultParas p');
+    const resetParas = document.querySelectorAll('.answerParas p');
     for (let i = 0 ; i < resetParas.length ; i++) {
       resetParas[i].textContent = '';
     }
   
     resetButton.parentNode.removeChild(resetButton);
   
-    guessField.disabled = false;
-    guessSubmit.disabled = false;
-    guessField.value = '';
-    guessField.focus();
+    predictField.disabled = false;
+    predictSubmit.disabled = false;
+    predictField.value = '';
+    predictField.focus();
   
-    lastResult.style.backgroundColor = 'white';
+    lastAnswer.style.backgroundColor = 'white';
   
-    randomNumber = Math.floor(Math.random() * 100) + 1;
+    randomNum = Math.floor(Math.random() * 100) + 1;
   }
-  guessField.focus();  
-  
