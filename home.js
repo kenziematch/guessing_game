@@ -4,15 +4,14 @@ const predicts = document.querySelector('.predicts');
 const lastAnswer = document.querySelector('.lastAnswer');
 const lowOrHi = document.querySelector('.lowOrHi');
 
-const predictsSubmit = document.querySelector('.predictsSubmit');
-const predictsField = document.querySelector('.predictsField');
+const predictsSubmit = document.querySelector('.predictSubmit');
+const predictsField = document.querySelector('.predictField');
 
-let pridictsCount = 1;
+let predictsCount = 1;
 let resetButton;
 
-
-function checkpredict() {
-    let userpredict = Number(predictField.value);
+const checkPredict = function() {
+    let userPredict = Number(predictField.value);
     if (predictsCount === 1) {
       predicts.textContent = 'Previous predicts: ';
     }
@@ -23,7 +22,7 @@ function checkpredict() {
       lastAnswer.style.backgroundColor = 'green';
       lowOrHi.textContent = '';
       setGameOver();
-    } else if (predictCount === 10) {
+    } else if (predictsCount === 10) {
       lastAnswer.textContent = '!!!GAME OVER!!!';
       setGameOver();
     } else {
@@ -36,7 +35,7 @@ function checkpredict() {
       }
     }
   
-    predictCount++;
+    predictsCount++;
     predictField.value = '';
     predictField.focus();
   }
