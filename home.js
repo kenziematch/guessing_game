@@ -10,19 +10,6 @@ const predictsField = document.querySelector('.predictsField');
 let pridictsCount = 1;
 let resetButton;
 
-<div class="answerParas">
-  <p class="predicts"></p>
-  <p class="lastanswer"></p>
-  <p class="lowOrHi"></p>
-</div>
-
-{/* <label for="predictField">Enter a prediction: </label><input type="text" id="predictField" class="predictField">
-<input type="submit" value="Submit prediction" class="predictsSumbit"> */}
-
-function checkPredict() {
-  alert('i am a potato');
-}
-checkGuess();
 
 function checkpredict() {
     let userpredict = Number(predictField.value);
@@ -54,7 +41,7 @@ function checkpredict() {
     predictField.focus();
   }
 
-  predictCount === 1
+  
 
   predictsSubmit.addEventListener('click', checkPredict);
 
@@ -82,7 +69,7 @@ function checkpredict() {
     predictField.value = '';
     predictField.focus();
   
-    lastAnswer.style.backgroundColor = 'white';
+    lastAnswer.style.backgroundColor = 'blue';
   
     randomNum = Math.floor(Math.random() * 100) + 1;
   }
